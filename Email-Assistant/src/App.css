@@ -1,0 +1,486 @@
+/* Thor Theme - Asgardian Style */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', 'Roboto', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+    background-size: 400% 400%;
+    animation: backgroundPulse 15s ease infinite;
+    position: relative;
+}
+
+/* Animated Thunder Background Effects */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(65, 105, 225, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(30, 144, 255, 0.15) 0%, transparent 50%);
+    animation: thunderGlow 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '⚡';
+    position: fixed;
+    font-size: 300px;
+    opacity: 0.05;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: floatThunder 10s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Container Styling */
+.MuiContainer-root {
+    position: relative;
+    z-index: 1;
+}
+
+/* Title Styling */
+.MuiTypography-h3 {
+    text-align: center;
+    font-weight: 900 !important;
+    background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5) !important;
+    font-family: 'Cinzel', serif !important;
+    letter-spacing: 4px !important;
+    margin-bottom: 40px !important;
+    animation: titleGlow 3s ease-in-out infinite, shake 0.8s ease-in-out;
+    position: relative;
+}
+
+.MuiTypography-h3::before {
+    content: '⚡';
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    animation: lightningLeft 2s ease-in-out infinite;
+}
+
+.MuiTypography-h3::after {
+    content: '⚡';
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    animation: lightningRight 2s ease-in-out infinite;
+}
+
+/* Box/Card Styling */
+.MuiBox-root {
+    background: linear-gradient(135deg, rgba(25, 35, 70, 0.9) 0%, rgba(15, 25, 50, 0.9) 100%) !important;
+    border: 2px solid #4169E1 !important;
+    border-radius: 20px !important;
+    padding: 30px !important;
+    margin-bottom: 30px !important;
+    box-shadow:
+        0 0 30px rgba(65, 105, 225, 0.4),
+        inset 0 0 30px rgba(255, 215, 0, 0.1) !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease !important;
+}
+
+.MuiBox-root::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    animation: cardGlow 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.MuiBox-root:hover {
+    transform: translateY(-8px) !important;
+    box-shadow:
+        0 15px 50px rgba(65, 105, 225, 0.6),
+        inset 0 0 40px rgba(255, 215, 0, 0.2) !important;
+    border-color: #FFD700 !important;
+}
+
+/* TextField Styling */
+.MuiTextField-root .MuiOutlinedInput-root {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root fieldset {
+    border-color: #4169E1 !important;
+    border-width: 2px !important;
+    transition: all 0.3s ease !important;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root:hover fieldset {
+    border-color: #FFD700 !important;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3) !important;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root.Mui-focused fieldset {
+    border-color: #FFD700 !important;
+    border-width: 3px !important;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5) !important;
+}
+
+.MuiTextField-root .MuiInputLabel-root {
+    color: #B0C4DE !important;
+    font-weight: 600 !important;
+}
+
+.MuiTextField-root .MuiInputLabel-root.Mui-focused {
+    color: #FFD700 !important;
+}
+
+.MuiTextField-root .MuiInputBase-input {
+    color: #ffffff !important;
+    font-size: 16px !important;
+}
+
+/* Select/Dropdown Styling */
+.MuiFormControl-root .MuiOutlinedInput-root {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border-radius: 12px !important;
+    color: #ffffff !important;
+}
+
+.MuiFormControl-root .MuiOutlinedInput-notchedOutline {
+    border-color: #4169E1 !important;
+    border-width: 2px !important;
+}
+
+.MuiFormControl-root .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #FFD700 !important;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3) !important;
+}
+
+.MuiFormControl-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #FFD700 !important;
+    border-width: 3px !important;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5) !important;
+}
+
+.MuiFormControl-root .MuiSvgIcon-root {
+    color: #FFD700 !important;
+}
+
+.MuiFormControl-root .MuiInputLabel-root {
+    color: #B0C4DE !important;
+    font-weight: 600 !important;
+}
+
+.MuiFormControl-root .MuiInputLabel-root.Mui-focused {
+    color: #FFD700 !important;
+}
+
+/* Menu Items */
+.MuiMenuItem-root {
+    color: #ffffff !important;
+    background-color: #1a1f3a !important;
+    transition: all 0.3s ease !important;
+}
+
+.MuiMenuItem-root:hover {
+    background-color: #4169E1 !important;
+    color: #FFD700 !important;
+}
+
+.MuiMenuItem-root.Mui-selected {
+    background-color: #4169E1 !important;
+    color: #FFD700 !important;
+}
+
+/* Contained Button Styling (Generate Button) */
+.MuiButton-contained {
+    background: linear-gradient(45deg, #4169E1, #1E90FF) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    padding: 12px 32px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 0 25px rgba(65, 105, 225, 0.6) !important;
+    transition: all 0.4s ease !important;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+}
+
+.MuiButton-contained::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.4);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.MuiButton-contained:hover {
+    background: linear-gradient(45deg, #FFD700, #FFA500) !important;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.9) !important;
+    transform: scale(1.08) translateY(-3px) !important;
+}
+
+.MuiButton-contained:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.MuiButton-contained:active {
+    animation: hammerStrike 0.3s ease;
+}
+
+.MuiButton-contained:disabled {
+    background: #555555 !important;
+    color: #999999 !important;
+    box-shadow: none !important;
+}
+
+/* Outlined Button Styling (Copy Button) */
+.MuiButton-outlined {
+    border-color: #FFD700 !important;
+    border-width: 2px !important;
+    color: #FFD700 !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    padding: 12px 32px !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.MuiButton-outlined:hover {
+    border-color: #FFA500 !important;
+    border-width: 2px !important;
+    background-color: rgba(255, 215, 0, 0.15) !important;
+    color: #FFA500 !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4) !important;
+}
+
+/* Loading Spinner */
+.MuiCircularProgress-root {
+    color: #FFD700 !important;
+}
+
+/* Animations */
+@keyframes backgroundPulse {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes thunderGlow {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes floatThunder {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -45%) rotate(8deg) scale(1.05);
+    }
+}
+
+@keyframes titleGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 15px rgba(255, 215, 0, 0.6),
+            0 0 30px rgba(255, 215, 0, 0.4),
+            0 0 45px rgba(255, 215, 0, 0.2);
+    }
+
+    50% {
+        text-shadow:
+            0 0 25px rgba(255, 215, 0, 0.9),
+            0 0 40px rgba(255, 215, 0, 0.6),
+            0 0 60px rgba(255, 215, 0, 0.4);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-3px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(3px);
+    }
+}
+
+@keyframes lightningLeft {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: translateY(0) rotate(-15deg) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-8px) rotate(-10deg) scale(1.1);
+        filter: drop-shadow(0 0 10px #FFD700);
+    }
+}
+
+@keyframes lightningRight {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: translateY(0) rotate(15deg) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-8px) rotate(10deg) scale(1.1);
+        filter: drop-shadow(0 0 10px #FFD700);
+    }
+}
+
+@keyframes cardGlow {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes hammerStrike {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.92);
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0e27;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4169E1, #FFD700);
+    border-radius: 10px;
+    border: 3px solid #0a0e27;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #FFD700, #FFA500);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .MuiTypography-h3 {
+        font-size: 2rem !important;
+        letter-spacing: 2px !important;
+    }
+
+    .MuiTypography-h3::before,
+    .MuiTypography-h3::after {
+        display: none;
+    }
+
+    body::after {
+        font-size: 150px;
+    }
+
+    .MuiBox-root {
+        padding: 20px !important;
+    }
+
+    .MuiButton-contained,
+    .MuiButton-outlined {
+        font-size: 0.9rem !important;
+        padding: 10px 24px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .MuiTypography-h3 {
+        font-size: 1.5rem !important;
+    }
+
+    body::after {
+        font-size: 100px;
+    }
+}
