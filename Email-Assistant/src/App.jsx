@@ -12,7 +12,7 @@ function App() {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8080/api/email/generate ", {
+      const response = await axios.post("http://localhost:8080/api/email/generate", {
         emailContent,
         tone
       });
